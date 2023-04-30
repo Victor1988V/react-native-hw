@@ -2,12 +2,13 @@ import React, { useState, useEffect, useCallback } from "react";
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Platform } from "react-native";
-import RegistrationScreen from "./Screens/RegistrationScreen";
-import LoginScreen from "./Screens/LoginScreen";
+import { StyleSheet, Text, View, Platform, Button } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { useRoute } from "./router";
 
 export default function App() {
   console.log(Platform.OS);
+  const routing = useRoute(true);
   const [appIsReady, setAppIsReady] = useState(false);
 
   useEffect(() => {
@@ -40,11 +41,12 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container} onLayout={onLayoutRootView}>
-      <RegistrationScreen />
-      {/* <LoginScreen /> */}
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <View style={styles.container} onLayout={onLayoutRootView}>
+        {routing}
+        <StatusBar style="dark" backgroundColor="#fff" />
+      </View>
+    </NavigationContainer>
   );
 }
 
