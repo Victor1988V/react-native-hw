@@ -3,7 +3,7 @@
     "name": "homework-react-native",
     "slug": "homework-react-native",
     "privacy": "public",
-    "description": "You must log in. After that you can publish posts with photo, title and location. Look at posts of anothers users, you can comment and like them",
+    "description": "Homework react-native",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -16,9 +16,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "jsEngine": "hermes",
     "ios": {
       "jsEngine": "jsc",
