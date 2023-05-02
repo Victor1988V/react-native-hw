@@ -216,27 +216,25 @@ const CreatePostsScreen = ({ navigation }) => {
                 {openCamera ? (
                   <>
                     {hasPermission ? (
-                      <>
-                        <Camera
-                          style={styles.camera}
-                          ref={setCamera}
-                          type={type}
-                          flashMode="auto"
-                          onMountError={(error) => {
-                            console.log("camera error", error);
+                      <Camera
+                        style={styles.camera}
+                        ref={setCamera}
+                        type={type}
+                        flashMode="auto"
+                        onMountError={(error) => {
+                          console.log("camera error", error);
+                        }}
+                      >
+                        <TouchableOpacity
+                          style={{
+                            ...styles.cameraIconBlock,
+                            backgroundColor: "#FFFFFF4D",
                           }}
+                          onPress={takePhoto}
                         >
-                          <TouchableOpacity
-                            style={{
-                              ...styles.cameraIconBlock,
-                              backgroundColor: "#FFFFFF4D",
-                            }}
-                            onPress={takePhoto}
-                          >
-                            <CameraIcon fill="#fff" />
-                          </TouchableOpacity>
-                        </Camera>
-                      </>
+                          <CameraIcon fill="#fff" />
+                        </TouchableOpacity>
+                      </Camera>
                     ) : hasPermission === null ? (
                       <Text>Ожидаем включения камеры</Text>
                     ) : (
